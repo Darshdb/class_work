@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F0F8FF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-submit {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form action="#" method="post" id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+		<div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="text" id="age" name="age">
+            </div>
+		<div class="form-group">
+                <label for="ContactNum">Contact Number:</label>
+                <input type="text" id="contactnum" name="contactnum">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female" required>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="Other" required>
+                <label for="other">Other</label>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select id="course" name="course" required>
+                    <option value="B.Sc">B.Sc</option>
+                    <option value="B.A">B.A</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Sc">M.Sc</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Interests:</label>
+                <input type="checkbox" id="sports" name="interests" value="Sports">
+                <label for="sports">Sports</label>
+                <input type="checkbox" id="music" name="interests" value="Music">
+                <label for="music">Music</label>
+                <input type="checkbox" id="books" name="interests" value="Books">
+                <label for="books">Books</label>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+
+        <table id="registrationTable">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Interests</th>
+                    <th>Comments</th>
+		    <th>Age</th>
+		     <th>Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Registration data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form values
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var course = document.getElementById("course").value;
+            var interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(input => input.value).join(', ');
+            var comments = document.getElementById("comments").value;
+	    var age = document.getElementById("age").value;
+	    var contactnum = document.getElementById("contactnum").value;
+
+
+
+            // Create a new row in the table
+            var table = document.getElementById("registrationTable").getElementsByTagName("tbody")[0];
+            var newRow = table.insertRow(table.rows.length);
+
+            // Insert data into cells
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+	    var cell7 = newRow.insertCell(6);
+	    var cell8 = newRow.insertCell(7);
+
+
+
+            cell1.innerHTML = fullName;
+            cell2.innerHTML = email;
+            cell3.innerHTML = gender;
+            cell4.innerHTML = course;
+            cell5.innerHTML = interests;
+            cell6.innerHTML = comments;
+	    cell7.innerHTML = age;
+	    cell8.innerHTML = contactnum;
+
+
+            // Clear form fields
+            document.getElementById("registrationForm").reset();
+        });
+    </script>
+</body>
+</html>
