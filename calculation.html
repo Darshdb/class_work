@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+function add()
+{
+	var numOne, numTwo, result;
+	numOne=parseInt(document.getElementById("first").value);
+	numTwo=parseInt(document.getElementById("second").value);
+	result= numOne + numTwo;
+	document.getElementById("answer").value= result;
+}
+function mul()
+{
+	var numOne, numTwo, result;
+	numOne=parseInt(document.getElementById("first").value);
+	numTwo=parseInt(document.getElementById("second").value);
+	result= numOne * numTwo;
+	document.getElementById("multiplication").value= result;
+}
+
+function subtraction()
+{
+	var numOne, numTwo, sum;
+	numOne=parseInt(document.getElementById("first").value);
+	numTwo=parseInt(document.getElementById("second").value);
+	result= numOne - numTwo;
+	document.getElementById("subtraction").value= result;
+}
+
+</script>
+</head>
+<body>
+
+<p>Enter the first Number:<input id="first"></p>
+<p>Enter the second Number:<input id="second"></p>
+<button onclick="add()">Add</button>
+<p>Answer=<input id="answer"></p>
+<button onclick="subtraction()">Subtraction</button>
+<p>Answer=<input id="subtraction"></p>
+<button onclick="mul()">Multiplication</button>
+<p>Answer=<input id="multiplication"></p>
+
+
+</body>
+</html>
+
